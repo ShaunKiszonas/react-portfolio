@@ -1,18 +1,18 @@
 import github from '../assets/images/github.jpg';
 import linkedin from '../assets/images/linkedin.jpg';
-import mail from '../assets/images/mail.jpg';
+import email from '../assets/images/email.jpg';
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <a href="/">
+      <a href="https://github.com/ShaunKiszonas">
         <img src={github} alt="github"></img>
       </a>
-      <a href="/">
+      <a href="https://www.linkedin.com/in/shaun-kiszonas-064802228/">
         <img src={linkedin} alt="linkdin"></img>
       </a>
       <a href="/">
-        <img src={mail} alt="mail"></img>
+        <img src={email} alt="email"></img>
       </a>
     </footer>
   );
