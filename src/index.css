@@ -26,11 +26,13 @@ body {
 .header a {
   text-decoration: none;
   color: var(--primaryColor);
+  text-shadow: 1px 1px var(--primaryColor);
 }
 
 .nav {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .list {
@@ -61,13 +63,13 @@ body {
   font-size: 1.75em;
 }
 
+.section-content {
+  text-indent: 1em;
+}
+
 .footer {
   display: flex;
   justify-content: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
 }
 
 .footer img{
@@ -82,4 +84,27 @@ body {
 .navActive {
   color: var(--tertiaryColor);
   text-shadow: 3px 3px var(--primaryColor);
+}
+
+@media screen and (max-width: 980px) {
+  .header {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.5em;
+  }
+  .nav {
+    font-size: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer {
+    position: static;
+  }
 }

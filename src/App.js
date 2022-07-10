@@ -1,16 +1,60 @@
 import { useState } from 'react';
 import Nav from './components/Nav';
-import About from './components/About';
-import ContactForm from './components/ContactForm';
-import Project from './components/Project';
+import Section from './components/Section';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
   const [categories] = useState([
-    { name: 'About Me' },
-    { name: 'Portfolio' },
-    { name: 'Contact' },
-    { name: 'Resume' },
+    {
+      name: 'About Me',
+      desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa
+      velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+      perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+      laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+      ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+      perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+      laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+      ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+      perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+      laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+      ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+      perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+      laborum?`,
+    },
+    {
+      name: 'Portfolio',
+      desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa
+    velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+    ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+    ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+    ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum?`,
+    },
+    {
+      name: 'Resume',
+      desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa
+    velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+    ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+    ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+    ipsa velit sunt ad deleniti incidunt nihil ducimus sint repudiandae
+    perspiciatis magni quo neque est, rerum saepe! Molestias dolor quas
+    laborum?`,
+    },
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
@@ -26,7 +70,14 @@ export default function App() {
         setContactSelected={setContactSelected}
       />
       <main>
-        <About />
+        {!contactSelected ? (
+          <>
+            <Section currentCategory={currentCategory} />
+          </>
+        ) : (
+          <Contact />
+        )}
+        <Portfolio />
         <Footer />
       </main>
     </>

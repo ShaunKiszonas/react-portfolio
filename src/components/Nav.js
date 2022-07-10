@@ -37,6 +37,9 @@ export default function Nav(props) {
             </span>
           </li>
         ))}
+        <li className={`list ${contactSelected && 'navActive'}`}>
+          <span onClick={() => setContactSelected(true)}>Contact</span>
+        </li>
       </ul>
     </header>
   );
