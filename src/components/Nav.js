@@ -1,16 +1,14 @@
-import { useEffect } from 'react';
-
 export default function Nav(props) {
   const {
-    categories = [],
-    setCurrentCategory,
-    currentCategory,
     contactSelected,
     setContactSelected,
+    portfolioSelected,
+    setPortfolioSelected,
+    aboutSelected,
+    setAboutSelected,
+    resumeSelected,
+    setResumeSelected,
   } = props;
-  useEffect(() => {
-    document.title = currentCategory.name;
-  }, [currentCategory]);
 
   return (
     <header className="header">
@@ -18,27 +16,53 @@ export default function Nav(props) {
         <a href="/">Shaun Kiszonas</a>
       </h1>
       <ul className="nav">
-        {categories.map((category) => (
-          <li
-            className={`list ${
-              currentCategory.name === category.name &&
-              !contactSelected &&
-              'navActive'
-            }`}
-            key={category.name}
+        <li className={`list ${aboutSelected && 'navActive'}`}>
+          <span
+            onClick={() => {
+              setAboutSelected(true);
+              setContactSelected(false);
+              setPortfolioSelected(false);
+              setResumeSelected(false);
+            }}
           >
-            <span
-              onClick={() => {
-                setCurrentCategory(category);
-                setContactSelected(false);
-              }}
-            >
-              {category.name}
-            </span>
-          </li>
-        ))}
+            About Me
+          </span>
+        </li>
+        <li className={`list ${portfolioSelected && 'navActive'}`}>
+          <span
+            onClick={() => {
+              setAboutSelected(false);
+              setContactSelected(false);
+              setPortfolioSelected(true);
+              setResumeSelected(false);
+            }}
+          >
+            Portfolio
+          </span>
+        </li>
+        <li className={`list ${resumeSelected && 'navActive'}`}>
+          <span
+            onClick={() => {
+              setAboutSelected(false);
+              setContactSelected(false);
+              setPortfolioSelected(false);
+              setResumeSelected(true);
+            }}
+          >
+            Resume
+          </span>
+        </li>
         <li className={`list ${contactSelected && 'navActive'}`}>
-          <span onClick={() => setContactSelected(true)}>Contact</span>
+          <span
+            onClick={() => {
+              setAboutSelected(false);
+              setContactSelected(true);
+              setPortfolioSelected(false);
+              setResumeSelected(false);
+            }}
+          >
+            Contact
+          </span>
         </li>
       </ul>
     </header>
